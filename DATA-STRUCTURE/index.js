@@ -204,5 +204,155 @@ add(...xA)
 
 restourant.orderPizza('mushrooms','onions','tomatoes','chickens')
 
+// use any data type,return any data type,short-circuiting
+// short circuiting will check the truth value if first value is true it will execute it 
+console.log('----OR----')
+console.log(3 || 'sandrine')
+console.log('' || 'sandrine')
+console.log(true || 0)
+console.log(undefined || null)
+console.log(undefined || 0 || '' || 'hello' || 2 || null)
+
+// you can also set default value to the numGuest
+// if you set this numGuest default value of zero it will not work
+// // restourant.numGuest = 43
+// const guest = restourant.numGuest ? restourant.numGuest : 10
+// console.log(guest)
+
+const guest2 = restourant.numGuest || 34
+console.log(guest2)
+
+console.log('----AND----')
+// and operator is true when all conditions is true
+console.log(0 && 'uwumukiza')
+console.log('hello' && 4 && null && 'jonas') 
+
+// practical exampkle
+
+if(restourant.orderPizza){
+  restourant.orderPizza('mushrooms', 'spinach')
+}
+// you can write the above code using and operator
+
+restourant.orderPizza && restourant.orderPizza('cocoa', 'olive')
+
+// Nullish coelacing operator this is where we deal with the default value of zero
+
+restourant.numGuest = 0
+const guest = restourant.numGuest ? restourant.numGuest : 10
+console.log(guest)
+
+// nullish value:null and undefined(NOT 0 and ')
+const correctError = restourant.numGuest ?? 10
+
+// Logical operator
+
+const resto1 = {
+  name:'Grace',
+  numGuests:0
+}
+const resto2 = {
+  name:'Faith',
+  owner:'Sandrine'
+}
+
+// OR assignment operator is used for false statement
+// resto1.numGuests = resto1.numGuests || 10
+// resto2.numGuests = resto2.numGuests || 10
+// resto1.numGuests ||=10
+// resto2.numGuests ||=10
+
+// Nullish assignment operator(null and undefined)
+resto1.numGuests ??=10
+resto2.numGuests ??=10
+
+// AND operator
+// resto2.owner = resto2.owner && '<ANONYMOUS'
+// resto1.owner = resto1.owner && '<ANONYMOUS'
+
+resto2.owner &&=  '<ANONYMOUS'
+resto1.owner &&= '<ANONYMOUS'
+console.log(resto1)
+console.log(resto2)
+
+// #coding challenge
+// football betting app
+
+
+const game = {
+  team1:'APR',
+  team2:'RayonSport',
+  players:[
+    [
+      
+        'fieldPlayer1',
+        'fieldPlayer2',
+        'fieldPlayer3',
+        'fieldPlayer4',
+        'fieldPlayer5',
+        'fieldPlayer6',
+        'fieldPlayer7',
+        'fieldPlayer8',
+        'fieldPlayer9',
+        'fieldPlayer10',
+
+    ],
+    
+      [
+      
+        'fieldPlayerT1',
+        'fieldPlayerT2',
+        'fieldPlayerT3',
+        'fieldPlayerT4',
+        'fieldPlayerT5',
+        'fieldPlayerT6',
+        'fieldPlayerT7',
+        'fieldPlayerT8',
+        'fieldPlayerT9',
+        'fieldPlayerT10',
+
+    ], 
+  ],
+  score:'4.0',
+  scored:['a','b','c'],
+  date:'09,February,2024',
+  odds:{
+    team1:1.36,
+    x:3.5,
+    team2:6
+  }
+
+}
+
+// 1
+const [players1,players2] = game.players
+// 2
+const [gk,...fieldPlayers] = players1;
+console.log(gk,fieldPlayers)
+// 3
+const allPlayers = [...players1,...players2]
+console.log(allPlayers)
+// 4
+const players1Final = [...players1,'sandrine','divine','Aurole']
+// 5
+
+const {odds:{team1,x:draw,team2}} = game;
+console.log(team1,draw,team2)
+// 6
+const printGoals = function(...players){
+  // console.log(players)
+  console.log(`${players.length} goal were scored`)
+}
+// printGoals('Yves','Fabrice','Sadio','Mane ')
+// printGoals('Yves','Fabrice')
+printGoals(...game.scored)
+
+// 7
+team1 < team2 && console.log('tea1 is more likely to win')
+
+
+
+
+
 
 
