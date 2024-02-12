@@ -350,6 +350,16 @@ printGoals(...game.scored)
 // 7
 team1 < team2 && console.log('tea1 is more likely to win')
 
+// LOOP AND ARRAYS
+
+const menu = [...restourant.starterMenu, ...restaurant.mainMenu]
+
+for(const item of menu)console.log(item)
+for(const item of menu.entries()){
+  console.log(`${item[0] +1} ${item[1]}`)
+}
+console.log([...menu.entries()])
+
 
 
 
